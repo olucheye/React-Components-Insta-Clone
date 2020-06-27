@@ -10,7 +10,12 @@ import "./Posts.css";
 const Post = props => {
   // set up state for the likes
    const defaultLikes = props.post.likes; //the default likes from data
-   const [likes, setlikes] = useState(defaultLikes)
+   const [likes, setLikes] = useState(defaultLikes);
+
+   //function to update likes.
+   function handleClick() {
+      setLikes(likes + 1);
+   }
 
   return (
     <div className="post-border">
@@ -27,6 +32,7 @@ const Post = props => {
       </div>
       <LikeSection
          postLikes={likes}
+         onClick={handleClick}
       />
       <CommentSection
         postId={props.post.imageUrl}
